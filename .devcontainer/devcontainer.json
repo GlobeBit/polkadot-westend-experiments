@@ -1,0 +1,17 @@
+{
+  "name": "Polkadot Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "rust-lang.rust-analyzer"
+      ]
+    }
+  },
+  "postCreateCommand": "rustup default stable && rustup update nightly && rustup target add wasm32-unknown-unknown --toolchain nightly && cargo install --git https://github.com/paritytech/substrate subkey"
+}
